@@ -5,12 +5,25 @@ using VetKlinik.Models;
 
 namespace VetKlinik.Controllers
 {
-    [Authorize]
+ 
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            var model = new Hizmetler
+            {
+                KlinikAd = "Kamerleno Veteriner Kliniği",
+                KlinikAdres = "123 tunceli sok. karakoyun mah.",
+                CalismaSaatleri = "Pazartesi-Cuma 09:00-18:00",
+                Hizmetlerimiz = new List<Hizmetler>
+                {
+                    new Hizmetler { }
+
+
+                }
+            };
+
+            return View(model);//Modeli viewe göndermek için
         }
 
         public IActionResult Privacy()
